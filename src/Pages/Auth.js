@@ -5,10 +5,22 @@ import { useState } from "react";
 const Auth=()=>{
 const [userId,setUserId] = useState("");
 const [Password,setPassword] = useState("");
+const [message,setMessage] = useState("");
 
  const onSignIn=(e)=>{
     e.preventDefault();
     console.log(userId,Password);
+
+    if(userId.length<5){
+        setMessage("This is not allow less the 5 cherectres")
+    }else{
+        setMessage("Sucessfull Login")
+    }
+    if(Password.length<5){
+        setMessage("This is not allow less the 5 cherectres")
+    }else{
+        setMessage("Sucessfull Login")
+    }
  }
 
  const handleUserId=(e)=>{
@@ -35,6 +47,9 @@ const [Password,setPassword] = useState("");
                 <input className="form-control bg-info text-white m-2 " type="Submit" value="signin" ></input>
             </div>
           </form>
+          <div style={{color:"green"}}>
+            {message}
+          </div>
           </div>
         </div>
     )
